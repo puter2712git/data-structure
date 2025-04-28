@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __QUEUE_H__
+#define __QUEUE_H__
 
 #define QUEUE_DEFAULT_SIZE 100
 
@@ -21,3 +22,5 @@ void queue_dump();
 
 int queue_is_empty();
 int queue_is_full();
+
+#endif
