@@ -6,6 +6,7 @@ set(SOURCES
     src/main.c
     src/data-structure/stack.c
     src/data-structure/queue.c
+    src/data-structure/linked_list.c
     src/simulator/simulator.c
     src/simulator/subsim/stacksim.c
 )
