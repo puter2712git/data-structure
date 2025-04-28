@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __STACK_H__
+#define __STACK_H__
 
 #define STACK_DEFAULT_SIZE 100
 
@@ -20,3 +21,5 @@ void stack_dump();
 
 int stack_is_empty();
 int stack_is_full();
+
+#endif
