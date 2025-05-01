@@ -36,7 +36,7 @@ int queue_ssim_execute(char** args, int arg_count)
         } else {
             fprintf(stderr, "[!] An error occurred in the command \"dequeue\".\n");
         }
-    } else if (strcmp(args[0], "dump") == 0 && arg_count == 0) {
+    } else if (strcmp(args[0], "dump") == 0 && arg_count == 1) {
         if (queue_dump()) {
             fprintf(stderr, "[!] An error occurred in the command \"dump\".\n");
         }
