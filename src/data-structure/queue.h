@@ -18,7 +18,7 @@ int queue_finalize();
 int queue_enqueue(char* str);
 char* queue_dequeue();
 
-void queue_dump();
+int queue_dump();
 
 int queue_is_empty();
 int queue_is_full();

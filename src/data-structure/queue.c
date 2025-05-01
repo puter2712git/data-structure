@@ -31,15 +31,9 @@ int queue_finalize()
 int queue_enqueue(char* str)
 {
     if (queue_is_full()) {
-        fprintf(stdout, "Queue is full! Resizing queue...\n");
-        fprintf(stdout, "Capacity: %d -> %d\n", que->capacity, que->capacity + QUEUE_DEFAULT_SIZE);
-
         que->capacity += QUEUE_DEFAULT_SIZE;
         que->data = (char**)realloc(que->data, sizeof(char*) * que->capacity);
     }
-
-    fprintf(stdout, "Enqueue new item to queue!\n");
-    fprintf(stdout, "Item: %s\n", str);
 
     que->front += 1;
 
@@ -53,7 +47,6 @@ int queue_enqueue(char* str)
 char* queue_dequeue()
 {
     if (queue_is_empty()) {
-        fprintf(stderr, "[!] Queue is empty! Cannot dequeue from queue.\n");
         return NULL;
     }
 
@@ -63,17 +56,17 @@ char* queue_dequeue()
     return que->data[deq_index];
 }
 
-void queue_dump()
+int queue_dump()
 {
     if (queue_is_empty()) {
-        fprintf(stderr, "[!] Queue is empty! Cannot dump queue.\n");
-        return;
+        return 1;
     }
 
-    fprintf(stdout, "========== Dumping Queue ==========\n");
     for (int i = que->rear + 1; i <= que->front; i++) {
         fprintf(stdout, "[%2d]: %s\n", i, que->data[i]);
     }
+
+    return 0;
 }
 
 int queue_is_empty()
