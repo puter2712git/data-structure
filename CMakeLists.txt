@@ -9,6 +9,7 @@ set(SOURCES
     src/data-structure/linked_list.c
     src/simulator/simulator.c
     src/simulator/subsim/stacksim.c
+    src/util/parser.c
 )
 
 add_executable(dss ${SOURCES})

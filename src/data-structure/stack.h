@@ -17,7 +17,7 @@ int stack_finalize();
 int stack_push(char* str);
 char* stack_pop();
 
-void stack_dump();
+int stack_dump();
 
 int stack_is_empty();
 int stack_is_full();

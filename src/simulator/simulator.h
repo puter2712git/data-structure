@@ -9,6 +9,7 @@ typedef enum {
 } sim_type;
 
 extern const char* SIM_NAMES[];
+extern subsim* ssims;
 
 typedef struct {
     subsim* ssim;

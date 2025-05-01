@@ -8,3 +8,5 @@ int stack_ssim_initialize();
 int stack_ssim_finalize();
 
 int stack_ssim_execute(char** args, int arg_count);
+
+void stack_help();

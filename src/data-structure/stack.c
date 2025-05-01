@@ -8,8 +8,6 @@ stack* stk = NULL;
 
 int stack_initialize()
 {
-    fprintf(stdout, "Initializing stack...\n");
-
     stk = (stack*)malloc(sizeof(stack));
     stk->top = -1;
     stk->capacity = STACK_DEFAULT_SIZE;
@@ -20,8 +18,6 @@ int stack_initialize()
 
 int stack_finalize()
 {
-    fprintf(stdout, "Finalizing stack...\n");
-
     for (int i = 0; i < stk->capacity; i++) {
         free(stk->data[i]);
     }
@@ -34,15 +30,9 @@ int stack_finalize()
 int stack_push(char* str)
 {
     if (stack_is_full()) {
-        fprintf(stdout, "Stack is full! Resizing stack...\n");
-        fprintf(stdout, "Capacity: %d -> %d\n", stk->capacity, stk->capacity + STACK_DEFAULT_SIZE);
-
         stk->capacity += STACK_DEFAULT_SIZE;
         stk->data = (char**)realloc(stk->data, sizeof(char*) * stk->capacity);
     }
-
-    fprintf(stdout, "Push new item to stack!\n");
-    fprintf(stdout, "Item: %s\n", str);
 
     stk->top += 1;
     
@@ -56,7 +46,6 @@ int stack_push(char* str)
 char* stack_pop()
 {
     if (stack_is_empty()) {
-        fprintf(stderr, "[!] Stack is empty! Cannot pop from stack.\n");
         return NULL;
     }
 
@@ -66,17 +55,17 @@ char* stack_pop()
     return stk->data[pop_index];
 }
 
-void stack_dump()
+int stack_dump()
 {
     if (stack_is_empty()) {
-        fprintf(stderr, "[!] Stack is empty! Cannot dump stack.\n");
-        return;
+        return EXIT_FAILURE;
     }
 
-    fprintf(stdout, "========== Dumping Stack ==========\n");
     for (int i = 0; i <= stk->top; i++) {
         fprintf(stdout, "[%2d]: %s\n", i, stk->data[i]);
     }
+
+    return EXIT_SUCCESS;
 }
 
 int stack_is_empty()
