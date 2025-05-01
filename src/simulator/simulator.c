@@ -1,5 +1,6 @@
 #include "simulator.h"
 #include "subsim/stacksim.h"
+#include "subsim/queuesim.h"
 #include <util/parser.h>
 
 #include <stdio.h>
@@ -22,6 +23,7 @@ int sim_initialize()
 
     ssims = (subsim*)malloc(sizeof(subsim) * SIM_COUNT);
     ssims[0] = stack_ssim;
+    ssims[1] = queue_ssim;
 
     return 0;
 }

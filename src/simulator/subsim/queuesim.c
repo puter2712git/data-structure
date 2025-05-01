@@ -1,7 +1,11 @@
 #include "queuesim.h"
 #include <data-structure/queue.h>
 
-subsim queue_ssim;
+subsim queue_ssim = {
+    .initialize = queue_ssim_initialize,
+    .finalize = queue_ssim_finalize,
+    .execute = queue_ssim_execute
+};
 
 int queue_ssim_initialize()
 {
