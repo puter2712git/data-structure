@@ -1,6 +1,7 @@
 #include "simulator.h"
 #include "subsim/stacksim.h"
 #include "subsim/queuesim.h"
+#include "subsim/llistsim.h"
 #include <util/parser.h>
 
 #include <stdio.h>
@@ -9,7 +10,8 @@
 
 const char* SIM_NAMES[] = {
     "Stack",
-    "Queue"
+    "Queue",
+    "List"
 };
 const int SIM_COUNT = sizeof(SIM_NAMES) / sizeof(SIM_NAMES[0]);
 subsim* ssims = NULL;
@@ -24,6 +26,7 @@ int sim_initialize()
     ssims = (subsim*)malloc(sizeof(subsim) * SIM_COUNT);
     ssims[0] = stack_ssim;
     ssims[1] = queue_ssim;
+    ssims[2] = llist_ssim;
 
     return 0;
 }

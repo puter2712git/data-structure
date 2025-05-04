@@ -98,11 +98,11 @@ char* llist_remove_tail()
     return data;
 }
 
-void llist_dump()
+int llist_dump()
 {
     if (llist_is_empty()) {
         fprintf(stderr, "[!] Linked list is empty! Cannot dump linked list.\n");
-        return;
+        return EXIT_FAILURE;
     }
 
     fprintf(stdout, "========== Dumping Linked List ==========\n");
@@ -112,6 +112,8 @@ void llist_dump()
         fprintf(stdout, "-> %s\n", tmp->data);
         tmp = tmp->next;
     }
+
+    return EXIT_SUCCESS;
 }
 
 int llist_is_empty()

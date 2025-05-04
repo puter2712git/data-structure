@@ -20,7 +20,7 @@ int llist_add_tail(char* str);
 char* llist_remove_head();
 char* llist_remove_tail();
 
-void llist_dump();
+int llist_dump();
 
 int llist_is_empty();
 

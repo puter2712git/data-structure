@@ -10,6 +10,7 @@ set(SOURCES
     src/simulator/simulator.c
     src/simulator/subsim/stacksim.c
     src/simulator/subsim/queuesim.c
+    src/simulator/subsim/llistsim.c
     src/util/parser.c
 )
 
